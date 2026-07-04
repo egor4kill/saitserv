@@ -537,24 +537,53 @@
     });
   });
  /* ----------------------------------------------------------
-     12. TWITCH КАРУСЕЛЬ
+     12. TWITCH КАРУСЕЛЬ (строится из config/streams.json)
      ---------------------------------------------------------- */
-  const track = $("#twitchTrack");
-  const slides = $$(".twitch__slide");
-  const prevBtn = $("#twitchPrev");
-  const nextBtn = $("#twitchNext");
-  
-  if (track && slides.length && prevBtn && nextBtn) {
+  async function initTwitchCarousel() {
+    const track = $("#twitchTrack");
+    const prevBtn = $("#twitchPrev");
+    const nextBtn = $("#twitchNext");
+    if (!track) return;
+
+    const PARENT = location.hostname || "localhost";
+
+    let streamers = [];
+    try {
+      const res = await fetch("config/streams.json");
+      const data = await res.json();
+      streamers = data.streamers || [];
+    } catch (err) {
+      console.error("Не удалось загрузить streams.json для карусели", err);
+    }
+
+    if (!streamers.length) {
+      track.innerHTML = `<div class="wiki-empty-hint">Пока никто не добавлен. Открой config/streams.json.</div>`;
+      return;
+    }
+
+    track.innerHTML = streamers.map((s, i) => `
+      <div class="twitch__slide${i === 0 ? " is-active" : ""}">
+        <div class="twitch__player-container">
+          <iframe src="https://player.twitch.tv/?channel=${s.twitchChannel}&parent=${PARENT}&autoplay=false" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="twitch__meta">
+          <span class="twitch__streamer">${s.name}</span>
+        </div>
+      </div>`).join("");
+
+    const slides = $$(".twitch__slide", track);
+    if (!prevBtn || !nextBtn || slides.length < 2) return;
+
     let currentIndex = 0;
-    
     const updateCarousel = (index) => {
       slides.forEach(s => s.classList.remove("is-active"));
       currentIndex = (index + slides.length) % slides.length;
       track.style.transform = `translateX(-${currentIndex * 100}%)`;
       slides[currentIndex].classList.add("is-active");
     };
-    
+
     prevBtn.addEventListener("click", () => updateCarousel(currentIndex - 1));
     nextBtn.addEventListener("click", () => updateCarousel(currentIndex + 1));
   }
+  initTwitchCarousel();
 })();
