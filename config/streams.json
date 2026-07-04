@@ -4,19 +4,31 @@
     {
       "name": "egor4kill",
       "twitchChannel": "egor4kill",
-      "note": "Сезон III, обычно вечерами",
+      "note": "",
       "vod": ""
     },
     {
       "name": "lowrensy",
       "twitchChannel": "lowrensy",
-      "note": "Сезон III",
+      "note": "",
       "vod": ""
     },
     {
       "name": "grimostarion",
       "twitchChannel": "grimostarion",
-      "note": "Сезон III",
+      "note": "",
+      "vod": ""
+    }
+    {
+      "name": "daantezik",
+      "twitchChannel": "grimostarion",
+      "note": "",
+      "vod": ""
+    }
+    {
+      "name": "nikolaysuper2011",
+      "twitchChannel": "grimostarion",
+      "note": "",
       "vod": ""
     }
   ]
