@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Вики — УЕБИЩЬ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body data-theme="dark" data-page="wiki">
+  <div class="bg-fog" aria-hidden="true">
+    <div class="fog-layer fog-1"></div><div class="fog-layer fog-2"></div><div class="fog-layer fog-3"></div>
+  </div>
+  <div class="bg-vignette" aria-hidden="true"></div>
+  <div class="bg-grain" aria-hidden="true"></div>
+  <div class="cursor" id="cursor" aria-hidden="true"><div class="cursor-ring"></div><div class="cursor-dot"></div></div>
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+  <div id="site-header"></div>
+  <main>
+    <div class="page-header">
+      <span class="page-header__eyebrow">СООБЩЕСТВО</span>
+      <h1 class="glitch" data-text="Вики">Вики</h1>
+      <p style="margin-top:14px;color:var(--ink-dim);max-width:560px;">Администрация и сама не знает зачем это было создано. В разработке вообщем.</p>
+    </div>
+
+    <section class="features" style="padding-top:0;">
+      <div class="player-grid" id="playerGrid">
+        <!-- рендерится из config/players.json -->
+      </div>
+    </section>
+
+    <hr class="divider" aria-hidden="true" />
+
+    <section class="about" id="lore">
+      <div class="section-head">
+        <span class="section-head__index">02</span>
+        <h2 class="section-head__title">Фракции, сущности, лор</h2>
+      </div>
+      <div class="stub-block reveal-auto" style="padding-top:0;">
+        <p>Раздел про фракции сезона I, сущностей сезона III и общий лор — в разработке. Добавится сюда таким же образом, через отдельный JSON.</p>
+      </div>
+    </section>
+  </main>
+  <div id="site-footer"></div>
+  <script src="assets/js/site.js"></script>
+  <script src="assets/js/wiki.js"></script>
+</body>
+</html>

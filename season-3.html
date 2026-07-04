@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Сезон III · Whispers in the Void — УЕБИЩЬ</title>
+  <meta name="description" content="Сезон III комьюнити УЕБИЩЬ — хоррор-сборка Whispers in the Void на Forge 1.20.1. Тёмные коридоры, нечто в темноте и другие игроки, которые могут не дожить до утра." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body data-theme="dark" data-page="season">
+
+  <!-- Фоновые слои: туман + виньетка + шум -->
+  <div class="bg-fog" aria-hidden="true">
+    <div class="fog-layer fog-1"></div>
+    <div class="fog-layer fog-2"></div>
+    <div class="fog-layer fog-3"></div>
+  </div>
+  <div class="bg-vignette" aria-hidden="true"></div>
+  <div class="bg-grain" aria-hidden="true"></div>
+
+  <!-- Кастомный курсор -->
+  <div class="cursor" id="cursor" aria-hidden="true">
+    <div class="cursor-ring"></div>
+    <div class="cursor-dot"></div>
+  </div>
+
+  <!-- Прогресс-бар прокрутки -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <div id="site-header"></div>
+
+  <main>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+      <div class="hero__grid" aria-hidden="true"></div>
+      <div class="hero__content">
+        <p class="hero__eyebrow">
+          <span class="hero__eyebrow-line"></span>
+          HORROR · SURVIVAL · 1.20.1
+        </p>
+        <h1 class="hero__title">
+          <span class="glitch glitch--xl" data-text="Сервер Уебищь 3.0">Сервер Уебищь 3.0</span>
+        </h1>
+        <p class="hero__subtitle">
+          Ты слышишь это? Шёпот за спиной. Это Николай шепчет чтобы его не отпиздил отец ночью. А ещё израильская сирена и румынский цыган орёт на всех кто находится в его доме. Именно это происходит у нас на сервере.<br> Ну а стример просто молчит из-за родителей дома.
+        </p>
+
+        <div class="hero__cta">
+          <a href="#join" class="btn btn--primary" data-copy="play.polyn.gg">
+            <span class="btn__label">Играть на сервере</span>
+          </a>
+          <a href="#about" class="btn btn--primary">Что сдесь происходит?</a>
+  
+          <!-- Твоя кнопка скачивания теперь внутри блока hero__cta -->
+          <a href="https://drive.google.com/file/d/151FaPHkHBwb0ivJpkCbUmUAQiTd-8y1T/view?usp=drive_link" class="btn btn--primary">
+            <span class="btn__label">СКАЧАТЬ СБОРКУ (FORGE 1.20.1)</span>
+          </a>
+          </div>
+
+        <div class="hero__stats">
+          <div class="hero__stat">
+            <span class="hero__stat-num" id="heroOnline">—</span>
+            <span class="hero__stat-label">игроков сейчас</span>
+          </div>
+          <div class="hero__stat">
+            <span class="hero__stat-num">2 471</span>
+            <span class="hero__stat-label">душ потеряно</span>
+          </div>
+          <div class="hero__stat">
+            <span class="hero__stat-num">18+</span>
+            <span class="hero__stat-label">рекомендуемый возраст</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero__scroll" aria-hidden="true">
+        <span>спустись во тьму</span>
+        <span class="hero__scroll-line"></span>
+      </div>
+    </section>
+
+    <!-- ===== ОБ СБОРКЕ ===== -->
+    <section class="about" id="about">
+      <div class="section-head">
+        <span class="section-head__index">01</span>
+        <h2 class="section-head__title">Что тебя ждёт внутри</h2>
+        <p class="section-head__desc">Ну сборку у братишкина увидели и взяли с curseforge так что не ноем на баланс нам.</p>
+      </div>
+
+      <div class="about__grid">
+        <article class="about__card">
+          <div class="about__card-num">/01</div>
+          <h3>Динамическая темнота</h3>
+          <p>Факелы стоят, пока их не сломают. А как сломали - сидим в полной темноте и не рыпаемся, как хо...</p>
+        </article>
+        <article class="about__card">
+          <div class="about__card-num">/02</div>
+          <h3>Звук, который лжёт</h3>
+          <p>Шаги за спиной, которых нет. Обернись, это не в майнкрафте. Это твой отец идёт пиздить тебя за то что не спишь ночью и не позвал его играть на наш сервер.</p>
+        </article>
+        <article class="about__card">
+          <div class="about__card-num">/03</div>
+          <h3>Нечто из коридоров</h3>
+          <p>Оно не из ваниллы. Оно учится. Оно - школьник.<br> Это наши любимые игроки.<br> Ради них мы готовы снести сборку и поставить 1.5.2 чтобы поиграть с ними.</p>
+        </article>
+        <article class="about__card">
+          <div class="about__card-num">/04</div>
+          <h3>Что после смерти?</h3>
+          <p>Умер.<br> Встретил маму и прабабку.<br> Возродился.<br> Пошёл лутать свою могилу.</p>
+        </article>
+      </div>
+    </section>
+    
+    <hr class="divider" aria-hidden="true" />
+
+    <!-- ===== МЕХАНИКИ ===== -->
+     <section class="features" id="features">
+      <div class="section-head section-head--center">
+        <span class="section-head__index">02</span>
+        <h2 class="section-head__title">Механики страха</h2>
+        <p class="section-head__desc">Каждая система здесь хочет тебя убить как и твой пьяный отчим. Никакой безопасности. Только боль.</p>
+      </div>
+
+      <div class="features__list">
+        <article class="feature">
+          <div class="feature__icon" aria-hidden="true">◐</div>
+          <div class="feature__body">
+            <h3>Рассудок</h3>
+            <p>Чем дольше сидишь в темноте - тем сильнее едет крыша. Так что в 22:00 отбой.</p>
+          </div>
+          <div class="feature__meter"><div class="feature__meter-fill" style="--w:72%"></div></div>
+        </article>
+        <article class="feature">
+          <div class="feature__icon" aria-hidden="true">☡</div>
+          <div class="feature__body">
+            <h3>Система сигналов</h3>
+            <p>Какая система сигналов, тут зетка нарисована, поэтому: ZVZVZVZVZV. Ну а так по сигналам только еврейская сигнализация.</p>
+          </div>
+          <div class="feature__meter"><div class="feature__meter-fill" style="--w:58%"></div></div>
+        </article>
+        <article class="feature">
+          <div class="feature__icon" aria-hidden="true">✝</div>
+          <div class="feature__body">
+            <h3>Память мира</h3>
+            <p>Мир помнит каждого, кто задонатит нам. Буду вырезать имена на обоях пока не отпиздит мать.</p>
+          </div>
+          <div class="feature__meter"><div class="feature__meter-fill" style="--w:84%"></div></div>
+        </article>
+        <article class="feature">
+          <div class="feature__icon" aria-hidden="true">☾</div>
+          <div class="feature__body">
+            <h3>Ночной цикл</h3>
+            <p>Ночью основной онлайн наверное, но спатеньки баеньки тебе надо, поэтому ты будешь играть один.</p>
+          </div>
+          <div class="feature__meter"><div class="feature__meter-fill" style="--w:66%"></div></div>
+        </article>
+      </div>
+    </section>
+
+    <hr class="divider" aria-hidden="true" />
+
+    <!-- ===== КАРТА МИРА ===== -->
+    <section class="map" id="map">
+      <div class="section-head">
+        <span class="section-head__index">03</span>
+        <h2 class="section-head__title">Карта мира</h2>
+        <p class="section-head__desc">Точки — игроки в реальном времени. Красные метки — места последней смерти. Наведи, чтобы узнать, кто и где.</p>
+      </div>
+
+      <div class="map__wrap">
+        <div class="map__panel">
+          <canvas id="worldMap" width="900" height="560" role="img" aria-label="Интерактивная карта мира Сервера Уебищь 3.0"></canvas>
+          <div class="map__legend">
+            <span><i class="dot dot--player"></i> живой игрок</span>
+            <span><i class="dot dot--dead"></i> последняя смерть</span>
+            <span><i class="dot dot--danger"></i> гнездо</span>
+          </div>
+        </div>
+
+        <aside class="map__side">
+          <div class="map__stat">
+            <span class="map__stat-label">Игроков на карте</span>
+            <span class="map__stat-val" id="mapPlayers">—</span>
+          </div>
+          <div class="map__stat">
+            <span class="map__stat-label">Активных гнёзд</span>
+            <span class="map__stat-val" id="mapNests">3</span>
+          </div>
+          <div class="map__stat">
+            <span class="map__stat-label">Зон смерти</span>
+            <span class="map__stat-val" id="mapDeaths">7</span>
+          </div>
+
+          <div class="map__feed">
+            <h4>Лента событий</h4>
+            <ul id="mapFeed"></ul>
+          </div>
+
+          <p class="map__hint">Карта обновляется автоматически. Это заглушка — на живом сервере здесь данные Dynmap.</p>
+        </aside>
+
+        <div class="map__tooltip" id="mapTooltip" hidden></div>
+      </div>
+    </section>
+
+    <hr class="divider" aria-hidden="true" />
+
+    <!-- ===== ОНЛАЙН ===== -->
+    <section class="online" id="online">
+      <div class="section-head section-head--center">
+        <span class="section-head__index">04</span>
+        <h2 class="section-head__title">Состояние сервера</h2>
+        <p class="section-head__desc">Показатели обновляются в реальном времени. Сейчас это демо-данные — на живом сервере они тянутся с API.</p>
+      </div>
+
+      <div class="online__grid">
+        <div class="online__hero">
+          <div class="online__hero-top">
+            <span class="status-dot status-dot--lg" id="bigStatusDot"></span>
+            <span class="online__hero-state" id="bigStatusText">Сервер в сети</span>
+          </div>
+          <div class="online__hero-num">
+            <span id="bigOnline">0</span><span class="online__hero-cap">/ 60</span>
+          </div>
+          <div class="online__hero-label">игроков сейчас на сервере</div>
+          <div class="online__hero-bar">
+            <div class="online__hero-bar-fill" id="onlineBar"></div>
+          </div>
+
+          <div class="online__hero-meta">
+            <div><span>TPS</span><strong id="metaTps">20.0</strong></div>
+            <div><span>Пинг</span><strong id="metaPing">14 мс</strong></div>
+            <div><span>Версия</span><strong>1.20.1</strong></div>
+            <div><span>Аптайм</span><strong id="metaUptime">0д</strong></div>
+          </div>
+
+          <div class="online__hero-threat">
+            <div class="online__hero-threat-head">
+              <span>Близость нечто</span>
+              <span class="online__hero-threat-val" id="threatVal">далеко</span>
+            </div>
+            <div class="online__hero-threat-meter">
+              <span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <p class="online__hero-threat-note">Оно ближе, когда онлайн падает. Не оставайся один.</p>
+          </div>
+        </div>
+
+        <div class="online__side">
+          <h3>Кто сейчас онлайн</h3>
+          <ul class="player-list" id="playerList"></ul>
+        </div>
+
+        <div class="online__chart">
+          <h3>Онлайн за последние 24 часа</h3>
+          <canvas id="onlineChart" width="560" height="200" role="img" aria-label="График онлайна за сутки"></canvas>
+          <div class="online__chart-axis">
+            <span>00:00</span><span>06:00</span><span>12:00</span><span>18:00</span><span>24:00</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+     <!-- ===== ТВИЧ СТРИМЫ ===== -->
+     <section class="twitch" id="twitch">
+      <div class="section-head section-head--center">
+       <span class="section-head__index">05</span>
+       <h2 class="section-head__title">Прямой эфир из убежища</h2>
+       <p class="section-head__desc">Смотри, как другие пытаются выжить прямо сейчас. Или молчат, потому что батя дома.</p>
+      </div>
+
+     <div class="twitch__carousel-wrap">
+      <button class="twitch__arrow twitch__arrow--prev" id="twitchPrev" aria-label="Назад">‹</button>
+      
+      <div class="twitch__viewport">
+        <div class="twitch__track" id="twitchTrack">
+          <!-- Стрим 1 -->
+          <div class="twitch__slide is-active">
+            <div class="twitch__player-container">
+              <iframe src="https://player.twitch.tv/?channel=egor4kill&parent=server-yebish.netlify.app&autoplay=false" allowfullscreen></iframe>
+            </div>
+            <div class="twitch__meta">
+              <span class="twitch__streamer">Стример #1</span>
+            </div>
+          </div>
+          <!-- Стрим 2 -->
+          <div class="twitch__slide">
+            <div class="twitch__player-container">
+              <iframe src="https://player.twitch.tv/?channel=lowrensy&parent=server-yebish.netlify.app&autoplay=false" allowfullscreen></iframe>
+            </div>
+            <div class="twitch__meta">
+              <span class="twitch__streamer">Стример #2</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button class="twitch__arrow twitch__arrow--next" id="twitchNext" aria-label="Вперед">›</button>
+     </div>
+     </section>
+
+    <hr class="divider" aria-hidden="true" />
+
+    <!-- ===== КАК ЗАЙТИ ===== -->
+    <section class="join" id="join">
+      <div class="join__inner">
+        <div class="section-head">
+          <span class="section-head__index">06</span> <!-- Поменяли на 06 -->
+          <h2 class="section-head__title">Как зайти</h2>
+          <p class="section-head__desc">Всего 67 шагов, но вот короткая инструкция в 3 коробках.</p>
+        </div>
+
+        <div class="join__steps">
+          <div class="join__step">
+            <span class="join__step-n">1</span>
+            <p>Запусти <strong>Minecraft Forge 1.20.1.</strong>. Сборка требуется, так что не пиши что не можешь с ванилы или со своего блядского сяоми.</p>
+          </div>
+          <div class="join__step">
+            <span class="join__step-n">2</span>
+            <p>Нажми <strong>«Сетевая игра» → «Добавить сервер»</strong>. Адрес — ниже, под кнопкой, ну а вообще можешь и свой адрес квартиры вписать, может быть запустит.</p>
+          </div>
+          <div class="join__step">
+            <span class="join__step-n">3</span>
+            <p>Зайди и сразу пиши в чат ZVZVZV для проверки на СВОих.</p>
+          </div>
+        </div>
+
+        <div class="join__ip">
+          <div class="join__ip-label">IP-адрес сервера</div>
+          <div class="join__ip-value">
+            <span id="ipText">play.polyn.gg</span>
+            <button class="join__ip-copy" id="ipCopy" data-copy="play.polyn.gg">
+              <span class="join__ip-copy-label">копировать</span>
+            </button>
+          </div>
+          <div class="join__ip-toast" id="ipToast" hidden>Скопировано. Удачи. Ты сам выбрал.</div>
+        </div>
+
+        <p class="join__warn">⚠ Входя на сервер, ты соглашаешься с тем, что ты ZVZVZV и тебя может оскорбить румын.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <nav class="season-pager" aria-label="Навигация по сезонам">
+    <a href="season-2.html" class="season-pager__prev">
+      <span>← предыдущий сезон</span>
+      <span class="big">II · Обычный сезон</span>
+    </a>
+    <a href="season.html" class="season-pager__all">все сезоны</a>
+  </nav>
+
+  <div id="site-footer"></div>
+
+  <script src="assets/js/site.js"></script>
+  <script src="assets/js/season.js"></script>
+</body>
+</html>

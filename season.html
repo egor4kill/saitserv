@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Все сезоны — Cервера Уёбищь</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body data-theme="dark" data-page="season">
+  <div class="bg-fog" aria-hidden="true">
+    <div class="fog-layer fog-1"></div><div class="fog-layer fog-2"></div><div class="fog-layer fog-3"></div>
+  </div>
+  <div class="bg-vignette" aria-hidden="true"></div>
+  <div class="bg-grain" aria-hidden="true"></div>
+  <div class="cursor" id="cursor" aria-hidden="true"><div class="cursor-ring"></div><div class="cursor-dot"></div></div>
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+  <div id="site-header"></div>
+  <main>
+    <div class="page-header">
+      <span class="page-header__eyebrow">2025 — 2026</span>
+      <h1 class="glitch" data-text="Все сезоны">Все сезоны</h1>
+      <p style="margin-top:14px;color:var(--ink-dim);max-width:560px;">У каждого сезона свой характер и своя сборка. Открой любой — стиль страницы поменяется вместе с ним.</p>
+    </div>
+    <section class="features" style="padding-top:0;">
+      <div class="season-list" id="allSeasonsList"></div>
+    </section>
+  </main>
+  <div id="site-footer"></div>
+  <script src="assets/js/site.js"></script>
+  <script src="assets/js/seasons.js"></script>
+</body>
+</html>

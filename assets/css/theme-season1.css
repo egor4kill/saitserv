@@ -1,0 +1,91 @@
+/* ============================================================
+   СЕЗОН I — «РАСКОЛ»
+   Плакатная эстетика противостояния двух лагерей.
+   Переопределяем токены базовой темы + добавляем блоки
+   специфичные только для этой страницы (сплит-хиро, фракции).
+   ============================================================ */
+:root {
+  --bg-0: #121014;
+  --bg-1: #17151a;
+  --bg-2: #1e1b22;
+  --bg-3: #26222b;
+  --line: #2c2830;
+  --line-2: #3a343e;
+
+  --ink: #eee6d6;
+  --ink-dim: #a79c89;
+  --ink-faint: #6e6558;
+
+  --blood: #a8201a;
+  --blood-bright: #d6362a;
+  --blood-glow: #ff5540;
+  --rust: #c9a227;
+  --bone: #eee6d6;
+
+  --font-display: "Oswald", "Arial Narrow", sans-serif;
+}
+
+/* Приглушаем туман/виньетку — плакату не нужна дымка */
+.bg-fog { opacity: 0.35; }
+.bg-vignette { opacity: 0.7; }
+
+/* Плакатная типографика чуть плотнее и жёстче обычной */
+.hero__title, .section-head__title, .page-header h1, .about__card h3, .feature__body h3 {
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+}
+
+/* ============================================================
+   СПЛИТ-ХИРО: два лагеря на одной карте
+   ============================================================ */
+.split-hero {
+  min-height: 100vh; position: relative; overflow: hidden;
+  display: flex; align-items: center; justify-content: center; text-align: center;
+  padding: 120px 28px 80px;
+}
+.split-hero__bg { position: absolute; inset: 0; z-index: 0; display: flex; }
+.split-hero__bg-left, .split-hero__bg-right { flex: 1; position: relative; }
+.split-hero__bg-left { background: linear-gradient(135deg, #3d0f0c, #1a0705 70%); }
+.split-hero__bg-right { background: linear-gradient(225deg, #0c1f33, #050f1a 70%); }
+.split-hero__seam {
+  position: absolute; top: 0; bottom: 0; left: 50%; width: 6px; transform: translateX(-50%);
+  background: repeating-linear-gradient(180deg, var(--rust) 0 14px, transparent 14px 28px);
+  z-index: 1; opacity: 0.8;
+}
+.split-hero__content { position: relative; z-index: 2; max-width: 780px; }
+.split-hero__eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.3em; color: var(--ink-dim); text-transform: uppercase; }
+.split-hero__title { margin-top: 20px; font-family: var(--font-display); font-weight: 700; font-size: clamp(52px, 11vw, 128px); line-height: 0.95; color: var(--bone); }
+.split-hero__desc { margin: 26px auto 0; max-width: 620px; font-size: 16px; color: var(--ink-dim); line-height: 1.7; }
+
+/* ============================================================
+   КАРТОЧКИ ФРАКЦИЙ
+   ============================================================ */
+.factions { max-width: var(--maxw); margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.faction-card {
+  border-radius: var(--r); padding: 36px 32px; position: relative; overflow: hidden;
+  border: 1px solid var(--line);
+}
+.faction-card__mark { font-size: 30px; }
+.faction-card__label { display: block; margin-top: 18px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; }
+.faction-card h3 { font-family: var(--font-display); font-size: 28px; margin: 10px 0 14px; text-transform: uppercase; }
+.faction-card p { color: var(--ink-dim); font-size: 14.5px; line-height: 1.7; }
+.faction-card--red { background: linear-gradient(160deg, #2a0f0d, var(--bg-1)); }
+.faction-card--red .faction-card__mark, .faction-card--red .faction-card__label { color: var(--blood-bright); }
+.faction-card--blue { background: linear-gradient(200deg, #0c2036, var(--bg-1)); }
+.faction-card--blue .faction-card__mark, .faction-card--blue .faction-card__label { color: #5b9bd6; }
+
+/* ============================================================
+   ХРОНИКА ПРОТИВОСТОЯНИЯ
+   ============================================================ */
+.timeline { max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; }
+.timeline__item { display: grid; grid-template-columns: 90px 1fr; gap: 24px; padding: 22px 0; border-top: 1px solid var(--line); }
+.timeline__item:first-child { border-top: 0; }
+.timeline__date { font-family: var(--font-mono); font-size: 12px; color: var(--ink-faint); letter-spacing: 0.08em; padding-top: 3px; }
+.timeline__item h4 { font-family: var(--font-display); font-size: 17px; color: var(--bone); text-transform: uppercase; margin-bottom: 6px; }
+.timeline__item p { color: var(--ink-dim); font-size: 14px; line-height: 1.65; }
+
+@media (max-width: 800px) {
+  .factions { grid-template-columns: 1fr; }
+  .split-hero__bg { flex-direction: column; }
+  .timeline__item { grid-template-columns: 1fr; gap: 6px; }
+}

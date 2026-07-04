@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Сезон I · Раскол — УЕБИЩЬ</title>
+  <meta name="description" content="Сезон I комьюнити УЕБИЩЬ — сервер поделился на два лагеря и устроил холодную войну на одной карте." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="stylesheet" href="assets/css/theme-season1.css" />
+</head>
+<body data-theme="dark" data-page="season">
+
+  <div class="bg-fog" aria-hidden="true">
+    <div class="fog-layer fog-1"></div><div class="fog-layer fog-2"></div><div class="fog-layer fog-3"></div>
+  </div>
+  <div class="bg-vignette" aria-hidden="true"></div>
+  <div class="bg-grain" aria-hidden="true"></div>
+  <div class="cursor" id="cursor" aria-hidden="true"><div class="cursor-ring"></div><div class="cursor-dot"></div></div>
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <div id="site-header"></div>
+
+  <main>
+    <!-- ===== СПЛИТ-ХИРО ===== -->
+    <section class="split-hero" id="hero">
+      <div class="split-hero__bg" aria-hidden="true">
+        <div class="split-hero__bg-left"></div>
+        <div class="split-hero__bg-right"></div>
+      </div>
+      <div class="split-hero__seam" aria-hidden="true"></div>
+      <div class="split-hero__content">
+        <p class="split-hero__eyebrow">Сезон I · 2024</p>
+        <h1 class="split-hero__title glitch" data-text="РАСКОЛ">РАСКОЛ</h1>
+        <p class="split-hero__desc">Сервер только запустился, а комьюнити уже успело поделиться на два лагеря. Никто толком не помнит, с чего началось — но карта до сих пор поделена ровно пополам.</p>
+      </div>
+    </section>
+
+    <hr class="divider" aria-hidden="true" />
+
+    <!-- ===== ФРАКЦИИ ===== -->
+    <section class="features" id="factions">
+      <div class="section-head section-head--center">
+        <span class="section-head__index">01</span>
+        <h2 class="section-head__title">Два лагеря, одна карта</h2>
+        <p class="section-head__desc">Формально — шутка про политику. По факту — повод устроить войну баз на ровном месте.</p>
+      </div>
+      <div class="factions">
+        <article class="faction-card faction-card--red reveal-auto">
+          <div class="faction-card__mark">★</div>
+          <span class="faction-card__label">Комитет</span>
+          <h3>Коллективная база</h3>
+          <p>Общий склад, общие фермы, общие проблемы. Всё решается голосованием, которое всегда заканчивается одним и тем же результатом.</p>
+        </article>
+        <article class="faction-card faction-card--blue reveal-auto">
+          <div class="faction-card__mark">⚖</div>
+          <span class="faction-card__label">Республика</span>
+          <h3>Частная застройка</h3>
+          <p>У каждого своя база, свой сундук и своё мнение о том, кто виноват в падении фермы редстоуна на прошлой неделе.</p>
+        </article>
+      </div>
+    </section>
+
+    <hr class="divider" aria-hidden="true" />
+
+    <!-- ===== ХРОНИКА ===== -->
+    <section class="about" id="timeline">
+      <div class="section-head">
+        <span class="section-head__index">02</span>
+        <h2 class="section-head__title">Хроника противостояния</h2>
+      </div>
+      <div class="timeline reveal-auto">
+        <div class="timeline__item">
+          <span class="timeline__date">неделя 1</span>
+          <div><h4>Раскол</h4><p>Спор о том, где ставить общий спавн, перерос в строительство пограничной стены из кобблстоуна.</p></div>
+        </div>
+        <div class="timeline__item">
+          <span class="timeline__date">неделя 3</span>
+          <div><h4>Редстоун-кризис</h4><p>Одна сторона взорвала ферму другой стороны «случайно». Обе стороны в это не поверили.</p></div>
+        </div>
+        <div class="timeline__item">
+          <span class="timeline__date">неделя 6</span>
+          <div><h4>Перемирие</h4><p>Стороны договорились сосуществовать — сразу после того, как выяснилось, что зачарованные книги были только у одного лагеря.</p></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <nav class="season-pager" aria-label="Навигация по сезонам">
+    <span></span>
+    <a href="season.html" class="season-pager__all">все сезоны</a>
+    <a href="season-2.html" class="season-pager__next">
+      <span>следующий сезон →</span>
+      <span class="big">II · Обычный сезон</span>
+    </a>
+  </nav>
+
+  <div id="site-footer"></div>
+
+  <script src="assets/js/site.js"></script>
+</body>
+</html>

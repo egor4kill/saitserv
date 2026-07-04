@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>УЕБИЩЬ — комьюнити, живущее сезонами</title>
+  <meta name="description" content="УЕБИЩЬ — Minecraft-комьюнити, которое уже третий сезон подряд собирается по вечерам, чтобы что-то построить и друг друга подбесить." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body data-theme="dark" data-page="index">
+
+  <div class="bg-fog" aria-hidden="true">
+    <div class="fog-layer fog-1"></div>
+    <div class="fog-layer fog-2"></div>
+    <div class="fog-layer fog-3"></div>
+  </div>
+  <div class="bg-vignette" aria-hidden="true"></div>
+  <div class="bg-grain" aria-hidden="true"></div>
+
+  <div class="cursor" id="cursor" aria-hidden="true">
+    <div class="cursor-ring"></div>
+    <div class="cursor-dot"></div>
+  </div>
+
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <div id="site-header"></div>
+
+  <main>
+
+    <!-- ===== HERO ХАБА ===== -->
+    <section class="hub-hero" id="hero">
+      <p class="hub-hero__eyebrow">
+        <span class="hub-hero__eyebrow-line"></span>
+        <span id="statSince">2024</span> — НАСТОЯЩЕЕ ВРЕМЯ
+      </p>
+      <h1 class="hub-hero__title">
+        <span class="glitch" data-text="УЕБИЩЬ">УЕБИЩЬ</span>
+      </h1>
+      <p class="hub-hero__desc" id="heroTagline">Комьюнити, которое пережило три сезона друг друга</p>
+
+      <div class="hub-hero__cta">
+        <a href="season-3.html" class="btn btn--primary">Текущий сезон · III</a>
+        <a href="#join" class="btn btn--primary" id="heroPlayBtn" data-copy="play.polyn.gg">Играть сейчас</a>
+        <a href="wiki.html" class="btn btn--primary">Вики сообщества</a>
+      </div>
+
+      <div class="hub-stats">
+        <div class="hub-stat">
+          <span class="stat-num" id="statSeasons">3</span>
+          <span class="stat-label">сезона позади</span>
+        </div>
+        <div class="hub-stat">
+          <span class="stat-num" id="statDays">412</span>
+          <span class="stat-label">дней вместе</span>
+        </div>
+        <div class="hub-stat">
+          <span class="stat-num" id="heroOnline">—</span>
+          <span class="stat-label">на сервере сейчас</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== О СООБЩЕСТВЕ (коротко) ===== -->
+    <section class="about" id="about">
+      <div class="section-head">
+        <span class="section-head__index">01</span>
+        <h2 class="section-head__title">Что такое УЕБИЩЬ</h2>
+      </div>
+      <div class="about-teaser reveal-auto">
+        <p id="heroDesc">Уебищь — не сборка и не сервер. Это компания людей, которая третий сезон подряд собирается по вечерам в одном мире, чтобы что-то построить и друг друга подбесить.</p>
+        <a href="about.html" class="link-arrow">узнать больше →</a>
+      </div>
+    </section>
+
+    <hr class="divider" aria-hidden="true" />
+
+    <!-- ===== СЕЗОНЫ ===== -->
+    <section class="features" id="seasons">
+      <div class="section-head">
+        <span class="section-head__index">02</span>
+        <h2 class="section-head__title">Сезоны</h2>
+        <p class="section-head__desc">Каждый сезон — новая сборка, новая история и новый повод для локальных мемов.</p>
+      </div>
+      <div class="season-list" id="seasonList">
+        <!-- рендерится из config/seasons.json -->
+      </div>
+    </section>
+
+    <hr class="divider" aria-hidden="true" />
+
+    <!-- ===== НОВОСТИ ===== -->
+    <section class="about" id="news">
+      <div class="section-head">
+        <span class="section-head__index">03</span>
+        <h2 class="section-head__title">Новости</h2>
+        <p class="section-head__desc">Что изменилось за последнее время.</p>
+      </div>
+      <div class="news-grid" id="newsList">
+        <!-- рендерится из config/news.json -->
+      </div>
+      <div style="text-align:center; margin-top: 32px;">
+        <a href="news.html" class="link-arrow">все новости →</a>
+      </div>
+    </section>
+
+    <hr class="divider" aria-hidden="true" />
+
+    <!-- ===== КАК ЗАЙТИ ===== -->
+    <section class="join" id="join">
+      <div class="join__inner">
+        <div class="section-head">
+          <span class="section-head__index">04</span>
+          <h2 class="section-head__title">Как зайти</h2>
+          <p class="section-head__desc">Актуальный IP всегда один — сборка меняется от сезона к сезону.</p>
+        </div>
+
+        <div class="join__ip">
+          <div class="join__ip-label">IP-адрес сервера</div>
+          <div class="join__ip-value">
+            <span id="ipText">play.polyn.gg</span>
+            <button class="join__ip-copy" id="ipCopy" data-copy="play.polyn.gg">
+              <span class="join__ip-copy-label">копировать</span>
+            </button>
+          </div>
+          <div class="join__ip-toast" id="ipToast" hidden>Скопировано.</div>
+        </div>
+
+        <p class="join__warn">Подробная инструкция и требования по сборке — на странице текущего сезона.</p>
+        <div style="margin-top: 20px;">
+          <a href="season-3.html" class="link-arrow">открыть страницу сезона III →</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="assets/js/site.js"></script>
+  <script src="assets/js/index.js"></script>
+</body>
+</html>

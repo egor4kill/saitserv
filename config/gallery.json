@@ -1,0 +1,23 @@
+{
+  "_как_добавить_фото": "Каждое фото — два файла: thumb (маленькое, для сетки) и full (побольше, открывается по клику). Оба кладёшь в assets/img/gallery/, инструкция по сжатию — в README.txt рядом. Скопируй блок, поменяй пути и caption/season.",
+  "photos": [
+    {
+      "thumb": "assets/img/gallery/egor-full.webp",
+      "full": "assets/img/gallery/egor-thumb.webp",
+      "caption": "Один из админов",
+      "season": "Сезон III"
+    },
+    {
+      "thumb": "assets/img/gallery/pel-full.webp",
+      "full": "assets/img/gallery/pel-thumb.webp",
+      "caption": "Пельмени",
+      "season": "Сезон III"
+    },
+    {
+      "thumb": "assets/img/gallery/ege-full.webp",
+      "full": "assets/img/gallery/ege-thumb.webp",
+      "caption": "На СВО",
+      "season": "Сезон III"
+    }
+  ]
+}
