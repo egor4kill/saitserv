@@ -533,7 +533,8 @@ section { padding: 84px 28px; position: relative; }
 .hub-stats .stat-label { display: block; margin-top: 4px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); }
 
 /* --- О сообществе, короткий тизер --- */
-.about-teaser { max-width: 760px; margin: 0 auto; }
+.about-teaser { max-width: var(--maxw); margin: 0 auto; }
+.about-teaser p { max-width: 700px; }
 .about-teaser p { font-size: 16px; color: var(--ink-dim); line-height: 1.8; }
 .about-teaser a.link-arrow { display: inline-flex; align-items: center; gap: 8px; margin-top: 20px; color: var(--bone); font-family: var(--font-mono); font-size: 13px; letter-spacing: 0.06em; }
 .about-teaser a.link-arrow:hover { color: var(--blood-bright); }
