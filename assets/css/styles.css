@@ -469,9 +469,12 @@ section { padding: 84px 28px; position: relative; }
 .join__ip-label { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--ink-faint); }
 .join__ip-value { display: flex; align-items: center; justify-content: center; gap: 16px; margin-top: 12px; }
 .join__ip-value span { font-family: var(--font-mono); font-size: clamp(20px, 4vw, 30px); color: var(--bone); letter-spacing: 0.04em; }
-.join__ip-copy { padding: 8px 18px; border: 1px solid var(--line-2); border-radius: 8px; font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-dim); transition: all 0.25s; }
-.join__ip-copy:hover { border-color: var(--blood-bright); color: var(--bone); background: rgba(139,26,26,0.15); }
-.join__ip-copy.copied { border-color: var(--blood-bright); color: var(--blood-glow); }
+.join__ip-clickable {
+  cursor: pointer; border-bottom: 1px dashed var(--line-2); transition: color 0.25s, border-color 0.25s;
+}
+.join__ip-clickable:hover { color: var(--bone); border-color: var(--blood-bright); }
+.join__ip-clickable.copied { color: var(--blood-glow); border-color: var(--blood-glow); }
+.join__ip-hint { margin-top: 10px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; color: var(--ink-faint); }
 .join__ip-toast { margin-top: 18px; font-size: 12px; color: var(--blood-bright); font-style: italic; animation: feedIn 0.4s var(--ease); }
 .join__warn { margin-top: 36px; font-family: var(--font-mono); font-size: 12px; color: var(--ink-faint); letter-spacing: 0.04em; }
 
