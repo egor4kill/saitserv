@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Сервер Уебищь — комьюнити, живущее сезонами</title>
+  <title>УЕБИЩЬ — комьюнити, живущее сезонами</title>
   <meta name="description" content="УЕБИЩЬ — Minecraft-комьюнити, которое уже третий сезон подряд собирается по вечерам, чтобы что-то построить и друг друга подбесить." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -50,7 +50,7 @@
 
       <div class="hub-stats">
         <div class="hub-stat">
-          <span class="stat-num" id="statSeasons">2</span>
+          <span class="stat-num" id="statSeasons">3</span>
           <span class="stat-label">сезона позади</span>
         </div>
         <div class="hub-stat">
@@ -83,7 +83,7 @@
       <div class="section-head">
         <span class="section-head__index">02</span>
         <h2 class="section-head__title">Сезоны</h2>
-        <p class="section-head__desc">Каждый сезон - новая сборка, новая история и новый повод для локальных мемов.</p>
+        <p class="section-head__desc">Каждый сезон — новая сборка, новая история и новый повод для локальных мемов.</p>
       </div>
       <div class="season-list" id="seasonList">
         <!-- рендерится из config/seasons.json -->
@@ -121,11 +121,9 @@
         <div class="join__ip">
           <div class="join__ip-label">IP-адрес сервера</div>
           <div class="join__ip-value">
-            <span id="ipText">play.polyn.gg</span>
-            <button class="join__ip-copy" id="ipCopy" data-copy="play.polyn.gg">
-              <span class="join__ip-copy-label">копировать</span>
-            </button>
+            <span id="ipText" class="join__ip-clickable" data-copy="play.polyn.gg">play.polyn.gg</span>
           </div>
+          <div class="join__ip-hint">нажми, чтобы скопировать</div>
           <div class="join__ip-toast" id="ipToast" hidden>Скопировано.</div>
         </div>
 
