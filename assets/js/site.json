@@ -1,0 +1,24 @@
+{
+  "_как_редактировать": "Все поля ниже — заглушки-примеры. name/tagline/description/ip меняешь как есть. stats — реальные цифры впиши свои. socials — ссылки на дискорд/твич/ютуб/телеграм, поля начинающиеся на ЗАМЕНИ_ подсвечены в футере пунктиром, пока их не заменишь.",
+  "name": "Сервер Уебищь 3.0",
+  "tagline": "Комьюнити, которое пережило три сезона друг друга",
+  "description": "Уебищь — не сборка и не сервер. Это компания людей, которая третий сезон подряд собирается по вечерам в одном мире, чтобы что-то построить и друг друга подбесить.",
+  "ip": "play.polyn.gg",
+  "currentSeason": {
+    "number": 3,
+    "name": "Whispers in the Void",
+    "modloader": "Forge 1.20.1"
+  },
+  "stats": {
+    "seasons": 3,
+    "firstServerDate": "2025-06-20",
+    "peakOnline": 11,
+    "since": "2025"
+  },
+  "socials": {
+    "discord": "https://discord.com/invite/9qRVbDat56",
+    "twitch": "https://www.twitch.tv/egor4kill",
+    "youtube": "https://www.youtube.com/@egor4kill",
+    "telegram": "https://t.me/Darknetsboys"
+  }
+}
