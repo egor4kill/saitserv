@@ -32,9 +32,8 @@
       $("#statDays").textContent = daysAlive;
     }
     $("#statSince") && ($("#statSince").textContent = site.stats.since);
-    $("#ipText") && ($("#ipText").textContent = site.ip);
-    const ipBtn = $("#ipCopy");
-    if (ipBtn) ipBtn.setAttribute("data-copy", site.ip);
+    const ipTextEl = $("#ipText");
+    if (ipTextEl) { ipTextEl.textContent = site.ip; ipTextEl.setAttribute("data-copy", site.ip); }
     const heroPlay = $("#heroPlayBtn");
     if (heroPlay) heroPlay.setAttribute("data-copy", site.ip);
 

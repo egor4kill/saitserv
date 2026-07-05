@@ -106,9 +106,9 @@
       el.addEventListener("click", (e) => {
         e.preventDefault();
         const text = el.getAttribute("data-copy");
-        const isIpBtn = el.classList.contains("join__ip-copy");
+        const isIpEl = el.classList.contains("join__ip-clickable");
         const toast = $("#ipToast");
-        copyIP(text, isIpBtn ? el : null, toast);
+        copyIP(text, isIpEl ? el : null, toast);
         const heroHint = $(".btn__hint", el);
         const prevHint = heroHint ? heroHint.textContent : null;
         if (heroHint) {
@@ -133,11 +133,10 @@
     }
   }
 
-  function copyIP(text, btn, toast) {
+  function copyIP(text, el, toast) {
     const done = () => {
-      if (btn) { btn.classList.add("copied"); const l = $(".join__ip-copy-label", btn); if (l) l.textContent = "скопировано"; }
+      if (el) { el.classList.add("copied"); setTimeout(() => el.classList.remove("copied"), 2600); }
       if (toast) { toast.hidden = false; setTimeout(() => { toast.hidden = true; }, 2600); }
-      setTimeout(() => { if (btn) { btn.classList.remove("copied"); const l = $(".join__ip-copy-label", btn); if (l) l.textContent = "копировать"; } }, 2600);
     };
     if (navigator.clipboard?.writeText) {
       navigator.clipboard.writeText(text).then(done).catch(() => fallbackCopy(text, done));
