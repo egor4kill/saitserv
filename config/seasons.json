@@ -4,7 +4,7 @@
     "roman": "III",
     "title": "Whispers in the Void",
     "status": "active",
-    "period": "2026",
+    "period": "Лето 2026",
     "summary": "Текущий сезон. Forge 1.20.1, хоррор для страшных существ от игроков.",
     "link": "season-3.html"
   },
@@ -13,7 +13,7 @@
     "roman": "II",
     "title": "Svinlini141",
     "status": "archived",
-    "period": "2026",
+    "period": "Зима 2026",
     "summary": "Ванильный сервер что прожил не так долго, но имел самый большой средний онлайн среди уже существоваших.",
     "link": "season-2.html"
   },
@@ -22,7 +22,7 @@
     "roman": "I",
     "title": "Сервер Уёбищь",
     "status": "archived",
-    "period": "2025",
+    "period": "Лето 2025",
     "summary": "Сервер поделился на два лагеря и каждый пытался доказать что его идея лучше.",
     "link": "season-1.html"
   }
