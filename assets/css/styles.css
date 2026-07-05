@@ -447,7 +447,7 @@ section { padding: 84px 28px; position: relative; }
    ============================================================ */
 .join__inner { max-width: 800px; margin: 0 auto; text-align: center; }
 .join__steps { display: flex; gap: 0; justify-content: center; margin: 44px 0; flex-wrap: wrap; }
-.join__step { flex: 1; min-width: 200px; text-align: left; position: relative; padding: 4px 28px 0; }
+.join__step { flex: 1; min-width: 200px; text-align: center; position: relative; padding: 4px 28px 0; }
 .join__step + .join__step { border-left: 1px solid var(--line); }
 .join__step-n { font-family: var(--font-display); font-weight: 900; font-size: 44px; color: var(--blood-bright); display: block; line-height: 1; text-shadow: 0 0 20px rgba(198,40,40,0.3); }
 .join__step p { margin-top: 16px; color: var(--ink-dim); font-size: 14.5px; line-height: 1.65; }
