@@ -24,7 +24,13 @@
     $("#heroTagline") && ($("#heroTagline").textContent = site.tagline);
     $("#heroDesc") && ($("#heroDesc").textContent = site.description);
     $("#statSeasons") && ($("#statSeasons").textContent = site.stats.seasons);
-    $("#statDays") && ($("#statDays").textContent = site.stats.daysAlive);
+    // считаем дни сами от даты первого сервера — чтобы цифра
+    // всегда была актуальной и не устаревала со временем
+    if ($("#statDays") && site.stats.firstServerDate) {
+      const start = new Date(site.stats.firstServerDate);
+      const daysAlive = Math.floor((Date.now() - start) / 86400000);
+      $("#statDays").textContent = daysAlive;
+    }
     $("#statSince") && ($("#statSince").textContent = site.stats.since);
     $("#ipText") && ($("#ipText").textContent = site.ip);
     const ipBtn = $("#ipCopy");
