@@ -42,5 +42,32 @@
     }
   }
 
+  function loreCardHTML(e) {
+    return `
+      <div class="about__card reveal-auto">
+        <div class="about__card-num">${e.type}</div>
+        <h3>${e.title}</h3>
+        <p>${e.text}</p>
+      </div>`;
+  }
+
+  async function initLore() {
+    const wrap = $("#loreGrid");
+    if (!wrap) return;
+    try {
+      const res = await fetch("config/lore.json");
+      const data = await res.json();
+      const entries = data.entries || [];
+      wrap.innerHTML = entries.length
+        ? entries.map(loreCardHTML).join("")
+        : `<div class="wiki-empty-hint">Пока ничего не добавлено. Открой config/lore.json.</div>`;
+      document.dispatchEvent(new CustomEvent("content:rendered"));
+    } catch (err) {
+      console.error("Не удалось загрузить lore.json", err);
+      wrap.innerHTML = `<div class="wiki-empty-hint">Не удалось загрузить лор.</div>`;
+    }
+  }
+
   document.addEventListener("partials:ready", init);
+  document.addEventListener("partials:ready", initLore);
 })();
