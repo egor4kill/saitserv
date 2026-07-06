@@ -2,7 +2,7 @@
   "_как_редактировать": "downloadUrl — прямая ссылка на архив/модпак (например с Google Drive, MediaFire или CurseForge). version/modloader — просто текст-подпись. steps — шаги установки, каждый: title и text. Скопируй блок {...} для нового шага.",
   "version": "Сезон III — Whispers in the Void",
   "modloader": "Forge 1.20.1",
-  "downloadUrl": "https://drive.google.com/file/d/151FaPHkHBwb0ivJpkCbUmUAQiTd-8y1T/view?usp=drive_link",
+  "downloadUrl": "https://drive.google.com/file/d/151FaPHkHBwb0ivJpkCbUmUAQiTd-8y1T",
   "steps": [
     {
       "title": "Установи Forge",
