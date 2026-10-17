@@ -56,7 +56,7 @@
   --rust: #b5651d;        /* ржавчина / факел */
   --bone: #e8e2d2;        /* кость / свет */
 
-  --font-display: "Cinzel Decorative", "Times New Roman", serif;
+  --font-display: "Cinzel Decorative", "Ruslan Display", "Times New Roman", serif;
   --font-mono: "JetBrains Mono", "Courier New", monospace;
   --font-body: "Inter", -apple-system, "Segoe UI", sans-serif;
 
@@ -64,6 +64,11 @@
   --r: 14px;
 
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+:focus-visible {
+  outline: 2px solid var(--blood-bright);
+  outline-offset: 3px;
 }
 
 /* ============================================================

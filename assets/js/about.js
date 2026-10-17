@@ -6,13 +6,23 @@
   "use strict";
   const $ = (s, c = document) => c.querySelector(s);
 
+  function escapeHtml(str) {
+    if (!str) return "";
+    return String(str)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#039;");
+  }
+
   function cardHTML(t, i) {
     const num = String(i + 1).padStart(2, "0");
     return `
       <div class="about__card reveal-auto">
-        <div class="about__card-num">${num} · ${t.period}</div>
-        <h3>${t.title}</h3>
-        <p>${t.text}</p>
+        <div class="about__card-num">${num} · ${escapeHtml(t.period)}</div>
+        <h3>${escapeHtml(t.title)}</h3>
+        <p>${escapeHtml(t.text)}</p>
       </div>`;
   }
 
@@ -22,6 +32,7 @@
     if (!wrap) return;
     try {
       const res = await fetch("config/about.json");
+      if (!res.ok) throw new Error(`${res.status}`);
       const data = await res.json();
       if (introEl && data.intro) introEl.textContent = data.intro;
       const timeline = data.timeline || [];

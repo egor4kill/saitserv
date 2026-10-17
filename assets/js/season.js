@@ -19,101 +19,6 @@
   const choice = (arr) => arr[Math.floor(Math.random() * arr.length)];
   const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
 
-  /* ----------------------------------------------------------
-     1. КАСТОМНЫЙ КУРСОР
-     ---------------------------------------------------------- */
-  const cursor = $("#cursor");
-  if (cursor && matchMedia("(hover: hover)").matches) {
-    const ring = $(".cursor-ring", cursor);
-    const dot  = $(".cursor-dot", cursor);
-    let mx = innerWidth / 2, my = innerHeight / 2;   // позиция мыши
-    let rx = mx, ry = my;                            // позиция кольца (догоняет)
-
-    addEventListener("pointermove", (e) => {
-      mx = e.clientX; my = e.clientY;
-      // точка — строго под курсором, в её центре
-      dot.style.transform = `translate(${mx}px, ${my}px) translate(-50%, -50%)`;
-      cursor.classList.toggle("is-hover",
-        e.target.closest("a, button, [data-copy], .feature, .about__card, .player-list li"));
-    });
-    addEventListener("pointerdown", () => cursor.classList.add("is-down"));
-    addEventListener("pointerup",   () => cursor.classList.remove("is-down"));
-
-    // кольцо догоняет мышь с инерцией; в покое сходится ровно в центр точки
-    const tick = () => {
-      rx += (mx - rx) * 0.18;
-      ry += (my - ry) * 0.18;
-      ring.style.transform = `translate(${rx}px, ${ry}px) translate(-50%, -50%)`;
-      requestAnimationFrame(tick);
-    };
-    requestAnimationFrame(tick);
-  }
-
-  /* ----------------------------------------------------------
-     2. ПРОГРЕСС-БАР + NAV-СОСТОЯНИЕ + REVEAL
-     ---------------------------------------------------------- */
-  const progress = $("#scrollProgress");
-  const nav = $("#nav");
-
-  const onScroll = () => {
-    const h = document.documentElement;
-    const scrolled = h.scrollTop / (h.scrollHeight - h.clientHeight || 1);
-    if (progress) progress.style.width = (scrolled * 100) + "%";
-    if (nav) nav.classList.toggle("is-scrolled", h.scrollTop > 40);
-  };
-  addEventListener("scroll", onScroll, { passive: true });
-  onScroll();
-
-  // Reveal через IntersectionObserver
-  const revealTargets = $$(".about__card, .feature, .map__panel, .map__side, .online__hero, .online__side, .online__chart, .join__step, .join__ip, .hero__content");
-  revealTargets.forEach((el) => el.classList.add("reveal"));
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach((e) => {
-      if (e.isIntersecting) { e.target.classList.add("is-visible"); io.unobserve(e.target); }
-    });
-  }, { threshold: 0.15 });
-  revealTargets.forEach((el) => io.observe(el));
-
-  /* ----------------------------------------------------------
-     3. GLITCH-ЗАГОЛОВКИ ПО НАВЕДЕНИЮ + СЛУЧАЙНЫЕ ВСПЫШКИ
-     ---------------------------------------------------------- */
-  $$(".glitch").forEach((el) => {
-    const trigger = () => el.classList.add("is-glitching");
-    const release = () => el.classList.remove("is-glitching");
-    el.addEventListener("mouseenter", trigger);
-    el.addEventListener("mouseleave", release);
-    el.addEventListener("animationend", release);
-  });
-
-  // случайные glitch-вспышки на главном заголовке
-  const heroTitle = $(".hero__title .glitch");
-  if (heroTitle) {
-    const flicker = () => {
-      heroTitle.classList.add("is-glitching");
-      setTimeout(() => heroTitle.classList.remove("is-glitching"), 300);
-      setTimeout(flicker, rand(4000, 9000));
-    };
-    setTimeout(flicker, 3000);
-  }
-
-  /* ----------------------------------------------------------
-     4. МОБИЛЬНОЕ МЕНЮ
-     ---------------------------------------------------------- */
-  const burger = $("#navBurger");
-  const mobile = $("#navMobile");
-  if (burger && mobile) {
-    burger.addEventListener("click", () => {
-      const open = mobile.hasAttribute("hidden");
-      burger.classList.toggle("is-open", open);
-      burger.setAttribute("aria-expanded", String(open));
-      mobile.toggleAttribute("hidden", !open);
-    });
-    $$("a", mobile).forEach((a) => a.addEventListener("click", () => {
-      mobile.setAttribute("hidden", "");
-      burger.classList.remove("is-open");
-      burger.setAttribute("aria-expanded", "false");
-    }));
-  }
 
   /* ----------------------------------------------------------
      5. ДАННЫЕ ОНЛАЙНА (ЗАГЛУШКА)
@@ -524,18 +429,6 @@
   // обновляем карту-статистику раз в 10 сек (имитация активности)
   setInterval(updateMapStats, 10000);
 
-  // плавный скролл по якорям (с учётом фиксированной навигации)
-  $$('a[href^="#"]').forEach((a) => {
-    a.addEventListener("click", (e) => {
-      const id = a.getAttribute("href");
-      if (id.length < 2) return;
-      const target = $(id);
-      if (!target) return;
-      e.preventDefault();
-      const y = target.getBoundingClientRect().top + scrollY - 70;
-      scrollTo({ top: y, behavior: "smooth" });
-    });
-  });
  /* ----------------------------------------------------------
      12. TWITCH КАРУСЕЛЬ (строится из config/streams.json)
      ---------------------------------------------------------- */

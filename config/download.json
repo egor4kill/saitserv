@@ -1,12 +1,12 @@
 {
   "_как_редактировать": "downloadUrl — прямая ссылка на архив/модпак (например с Google Drive, MediaFire или CurseForge). version/modloader — просто текст-подпись. steps — шаги установки, каждый: title и text. Скопируй блок {...} для нового шага.",
   "version": "Сезон III — Whispers in the Void",
-  "modloader": "Forge 1.20.1",
+  "modloader": "NeoForge 1.21.1",
   "downloadUrl": "https://drive.google.com/file/d/1hFE-gvVIycCFLNCjHsqfL8m2YwEH8nGr/view?usp=drive_link",
   "steps": [
     {
-      "title": "Установи Forge",
-      "text": "Скачай и установи Forge 1.20.1 с официального сайта, если ещё не стоит."
+      "title": "Установи NeoForge",
+      "text": "Скачай и установи NeoForge 1.21.1 с официального сайта, если ещё не установлен."
     },
     {
       "title": "Скачай сборку",
@@ -14,7 +14,7 @@
     },
     {
       "title": "Заходи",
-      "text": "Запусти игру с профилем Forge 1.20.1 и подключайся по IP с главной страницы."
+      "text": "Запусти игру с профилем NeoForge 1.21.1 и подключайся по IP с главной страницы."
     }
   ]
 }

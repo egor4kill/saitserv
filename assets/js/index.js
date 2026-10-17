@@ -9,6 +9,16 @@
   const $  = (s, c = document) => c.querySelector(s);
   const randInt = (a, b) => Math.floor(a + Math.random() * (b - a + 1));
 
+  function escapeHtml(str) {
+    if (!str) return "";
+    return String(str)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#039;");
+  }
+
   async function getJSON(url) {
     const res = await fetch(url);
     if (!res.ok) throw new Error(`${url}: ${res.status}`);
@@ -24,8 +34,6 @@
     $("#heroTagline") && ($("#heroTagline").textContent = site.tagline);
     $("#heroDesc") && ($("#heroDesc").textContent = site.description);
     $("#statSeasons") && ($("#statSeasons").textContent = site.stats.seasons);
-    // считаем дни сами от даты первого сервера — чтобы цифра
-    // всегда была актуальной и не устаревала со временем
     if ($("#statDays") && site.stats.firstServerDate) {
       const start = new Date(site.stats.firstServerDate);
       const daysAlive = Math.floor((Date.now() - start) / 86400000);
@@ -37,7 +45,6 @@
     const heroPlay = $("#heroPlayBtn");
     if (heroPlay) heroPlay.setAttribute("data-copy", site.ip);
 
-    // симулируем текущий онлайн (реальные данные — когда будет query к серверу)
     const online = randInt(2, site.stats.peakOnline || 12);
     $("#navStatusText") && ($("#navStatusText").textContent = `Онлайн · ${online}`);
     $("#heroOnline") && ($("#heroOnline").textContent = online);
@@ -46,12 +53,12 @@
   function seasonCardHTML(s) {
     const statusLabel = s.status === "active" ? "идёт сейчас" : "архив";
     return `
-      <a class="season-card ${s.status === "active" ? "is-active" : ""} reveal-auto" href="${s.link}">
-        <div class="season-card__roman">${s.roman}</div>
+      <a class="season-card ${s.status === "active" ? "is-active" : ""} reveal-auto" href="${encodeURI(s.link)}">
+        <div class="season-card__roman">${escapeHtml(s.roman)}</div>
         <div class="season-card__body">
-          <span class="season-card__status">${statusLabel} · ${s.period}</span>
-          <h3>${s.title}</h3>
-          <p>${s.summary}</p>
+          <span class="season-card__status">${statusLabel} · ${escapeHtml(s.period)}</span>
+          <h3>${escapeHtml(s.title)}</h3>
+          <p>${escapeHtml(s.summary)}</p>
         </div>
         <span class="season-card__arrow">→</span>
       </a>`;
@@ -61,11 +68,11 @@
     return `
       <article class="news-card reveal-auto">
         <div class="news-card__meta">
-          <span class="news-card__tag">${n.tag}</span>
+          <span class="news-card__tag">${escapeHtml(n.tag)}</span>
           <time>${fmtDate(n.date)}</time>
         </div>
-        <h3>${n.title}</h3>
-        <p>${n.excerpt}</p>
+        <h3>${escapeHtml(n.title)}</h3>
+        <p>${escapeHtml(n.excerpt)}</p>
       </article>`;
   }
 

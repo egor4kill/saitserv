@@ -26,6 +26,7 @@
     if (!host) return;
     try {
       const res = await fetch(url);
+      if (!res.ok) throw new Error(`HTTP ${res.status} for ${url}`);
       host.outerHTML = await res.text();
     } catch (err) {
       console.error("Не удалось подгрузить", url, err);
@@ -39,6 +40,7 @@
     markActiveNav();
     initNavAndCursorDependentUI();
     hydrateSocials();
+    window.__partialsReady = true;
     document.dispatchEvent(new CustomEvent("partials:ready"));
   });
 

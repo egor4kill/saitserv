@@ -7,6 +7,16 @@
   "use strict";
   const $ = (s, c = document) => c.querySelector(s);
 
+  function escapeHtml(str) {
+    if (!str) return "";
+    return String(str)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#039;");
+  }
+
   function fmtDate(iso) {
     const d = new Date(iso);
     return d.toLocaleDateString("ru-RU", { day: "numeric", month: "long", year: "numeric" });
@@ -16,11 +26,11 @@
     return `
       <article class="news-card reveal-auto">
         <div class="news-card__meta">
-          <span class="news-card__tag">${n.tag}</span>
+          <span class="news-card__tag">${escapeHtml(n.tag)}</span>
           <time>${fmtDate(n.date)}</time>
         </div>
-        <h3>${n.title}</h3>
-        <p>${n.excerpt}</p>
+        <h3>${escapeHtml(n.title)}</h3>
+        <p>${escapeHtml(n.excerpt)}</p>
       </article>`;
   }
 
@@ -29,8 +39,8 @@
     if (!wrap) return;
     try {
       const res = await fetch("config/news.json");
+      if (!res.ok) throw new Error(`${res.status}`);
       const news = await res.json();
-      // новые новости сверху
       const sorted = [...news].sort((a, b) => new Date(b.date) - new Date(a.date));
       wrap.innerHTML = sorted.length
         ? sorted.map(newsCardHTML).join("")

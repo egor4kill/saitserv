@@ -1,18 +1,32 @@
 (() => {
   "use strict";
   const $ = (s, c = document) => c.querySelector(s);
-  const BATCH = 12; // сколько фото показываем за раз — экономит трафик тем, кто не долистал
+  const BATCH = 12;
 
   let allPhotos = [];
   let shown = 0;
+  let currentLbIndex = -1;
+
+  function escapeHtml(str) {
+    if (!str) return "";
+    return String(str)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#039;");
+  }
 
   function itemHTML(p, i) {
+    const caption = escapeHtml(p.caption || "");
+    const season = escapeHtml(p.season || "");
+    const thumb = encodeURI(p.thumb || "");
     return `
-      <button class="gallery-item reveal-auto" data-index="${i}" aria-label="Открыть фото: ${p.caption || ""}">
-        <img src="${p.thumb}" alt="${p.caption || ""}" loading="lazy" decoding="async" />
+      <button class="gallery-item reveal-auto" data-index="${i}" aria-label="Открыть фото: ${caption}">
+        <img src="${thumb}" alt="${caption}" loading="lazy" decoding="async" />
         <span class="gallery-item__overlay">
-          ${p.season ? `<span class="gallery-item__tag">${p.season}</span>` : ""}
-          ${p.caption ? `<span class="gallery-item__caption">${p.caption}</span>` : ""}
+          ${season ? `<span class="gallery-item__tag">${season}</span>` : ""}
+          ${caption ? `<span class="gallery-item__caption">${caption}</span>` : ""}
         </span>
       </button>`;
   }
@@ -30,12 +44,14 @@
   }
 
   function openLightbox(index) {
+    if (index < 0 || index >= allPhotos.length) return;
+    currentLbIndex = index;
     const p = allPhotos[index];
     if (!p) return;
     const lb = $("#lightbox");
     const img = $("#lightboxImg", lb);
     const cap = $("#lightboxCaption", lb);
-    img.src = p.full || p.thumb; // полный размер грузится только сейчас, по клику
+    img.src = p.full || p.thumb;
     img.alt = p.caption || "";
     cap.textContent = [p.season, p.caption].filter(Boolean).join(" · ");
     lb.hidden = false;
@@ -47,6 +63,17 @@
     lb.hidden = true;
     $("#lightboxImg", lb).src = "";
     document.body.style.overflow = "";
+    currentLbIndex = -1;
+  }
+
+  function showNextLightbox() {
+    if (currentLbIndex === -1 || !allPhotos.length) return;
+    openLightbox((currentLbIndex + 1) % allPhotos.length);
+  }
+
+  function showPrevLightbox() {
+    if (currentLbIndex === -1 || !allPhotos.length) return;
+    openLightbox((currentLbIndex - 1 + allPhotos.length) % allPhotos.length);
   }
 
   async function init() {
@@ -54,6 +81,7 @@
     if (!wrap) return;
     try {
       const res = await fetch("config/gallery.json");
+      if (!res.ok) throw new Error(`${res.status}`);
       const data = await res.json();
       allPhotos = data.photos || [];
 
@@ -73,8 +101,16 @@
       if (moreBtn) moreBtn.addEventListener("click", renderBatch);
 
       const lb = $("#lightbox");
-      lb.addEventListener("click", (e) => { if (e.target === lb || e.target.closest("[data-close]")) closeLightbox(); });
-      document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeLightbox(); });
+      lb.addEventListener("click", (e) => {
+        if (e.target === lb || e.target.closest("[data-close]")) closeLightbox();
+      });
+
+      document.addEventListener("keydown", (e) => {
+        if (lb.hidden) return;
+        if (e.key === "Escape") closeLightbox();
+        else if (e.key === "ArrowRight") showNextLightbox();
+        else if (e.key === "ArrowLeft") showPrevLightbox();
+      });
 
     } catch (err) {
       console.error("Не удалось загрузить gallery.json", err);

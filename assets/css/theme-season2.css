@@ -20,7 +20,7 @@
   --rust: #b6803f;
   --bone: #241d12;
 
-  --font-display: "Fredoka", "Inter", sans-serif;
+  --font-display: "Fredoka", "Comfortaa", "Inter", sans-serif;
 }
 
 body[data-theme="dark"] { color: var(--ink); }

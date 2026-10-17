@@ -6,11 +6,21 @@
   "use strict";
   const $ = (s, c = document) => c.querySelector(s);
 
+  function escapeHtml(str) {
+    if (!str) return "";
+    return String(str)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#039;");
+  }
+
   function stepHTML(step, i) {
     return `
       <div class="join__step reveal-auto">
         <span class="join__step-n">${i + 1}</span>
-        <p><strong>${step.title}.</strong> ${step.text}</p>
+        <p><strong>${escapeHtml(step.title)}.</strong> ${escapeHtml(step.text)}</p>
       </div>`;
   }
 
@@ -21,6 +31,7 @@
     if (!btn && !stepsWrap) return;
     try {
       const res = await fetch("config/download.json");
+      if (!res.ok) throw new Error(`${res.status}`);
       const data = await res.json();
 
       if (meta) meta.textContent = `${data.version} · ${data.modloader}`;
